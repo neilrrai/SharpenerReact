@@ -1,43 +1,25 @@
-// Write yoour code at relevant places in the code below:
+// handle the data with object
+// in this I passed date attribute(props) comming from App.js to ExpenseDate as calenderDate so this way we passed props from components to another components
 
+import ExpenseDate from "./ExpenseDate";
 import "./ExpenseItem.css";
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+import Card from "./Card";
 
 function ExpenseItem(props) {
   const expenseTitle = props.title;
   const expenseAmount = props.price;
   const expenseLocation = props.location;
-  const month = months[props.date.getMonth()];
-  const year = props.date.getFullYear();
-  const date = props.date.getDate();
-  console.log(date);
 
   return (
-    <div className="expense-item">
-      <div>
-        <div>{month}</div>
-        <div>{year}</div>
-        <div>{date}</div>
-      </div>
+    <Card className="expense-item">
+      {/* here className is passed as props to Card component */}
+      <ExpenseDate calenderDate={props.date} />
       <div className="expense-item__location">{expenseLocation}</div>
       <div className="expense-item__description">
         <h2>{expenseTitle}</h2>
         <div className="expense-item__price">${expenseAmount}</div>
       </div>
-    </div>
+    </Card>
   );
 }
 
