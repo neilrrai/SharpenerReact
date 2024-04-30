@@ -10,6 +10,11 @@ function ExpenseItem(props) {
   const expenseAmount = props.price;
   const expenseLocation = props.location;
 
+  // defining onClick function
+  const buttonClickHandler = (event) => {
+    console.log("Button Clicked");
+  };
+
   return (
     <Card className="expense-item">
       {/* here className is passed as props to Card component */}
@@ -18,6 +23,7 @@ function ExpenseItem(props) {
       <div className="expense-item__description">
         <h2>{expenseTitle}</h2>
         <div className="expense-item__price">${expenseAmount}</div>
+        <button onClick={buttonClickHandler}>Change Title</button>
       </div>
     </Card>
   );
