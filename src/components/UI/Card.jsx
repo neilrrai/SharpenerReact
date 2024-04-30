@@ -1,4 +1,4 @@
-// We used Card component as Wrapper div so we can re use with css
+// We used Card component as Wrapper div so we can re use with it's css
 
 function Card(props) {
   const classes = "card " + props.className;

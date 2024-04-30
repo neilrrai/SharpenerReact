@@ -1,6 +1,6 @@
 // handle all the items
 
-import Card from "./Card";
+import Card from "../UI/Card";
 import ExpenseItem from "./ExpenseItem";
 // import ExpenseItem from "components/ExpenseItem";
 import "./Expenses.css";

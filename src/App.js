@@ -1,6 +1,6 @@
 // Write your code at relevant places in the code below:
 
-import Expenses from "./components/Expenses";
+import Expenses from "./components/Expenses/Expenses";
 
 function App() {
   return (
