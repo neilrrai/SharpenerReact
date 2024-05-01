@@ -13,32 +13,14 @@ const ExpenseForm = () => {
     enteredDate: "",
   });
 
-  const titleChangeHandler = (event) => {
-    // setUserInput({ // not used as it will not has latest value of userInput
-    //   ...userInput,
-    //   enteredTitle:event.target.value
-    // })
-    setUserInput((prevState) => {
-      //prevState has always latest value of userInput now we can update it
-      return {
-        ...prevState,
-        enteredTitle: event.target.value, // only enteredTitle value will change,used spread operator
-      };
-    });
-  };
-  const amountChangeHandler = (event) => {
+  // Here I used single funHadler 'inputChangeHandler' to update input value
+
+  const inputChangeHandler = (event) => {
+    console.log(event);
     setUserInput((prevState) => {
       return {
         ...prevState,
-        enteredAmount: event.target.value,
-      };
-    });
-  };
-  const dateChangeHandler = (event) => {
-    setUserInput((prevState) => {
-      return {
-        ...prevState,
-        enteredDate: event.target.value,
+        [event.target.id]: event.target.value,
       };
     });
   };
@@ -48,20 +30,31 @@ const ExpenseForm = () => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label htmlFor="title">Title</label>
-          <input type="text" id="title" onChange={titleChangeHandler} />
+          <input
+            type="text"
+            id="enteredTitle"
+            onChange={inputChangeHandler}
+            value={userInput.enteredTitle}
+          />
         </div>
         <div className="new-expense__control">
           <label htmlFor="amount">Amount</label>
-          <input type="number" id="amount" onChange={amountChangeHandler} />
+          <input
+            type="number"
+            id="enteredAmount"
+            onChange={inputChangeHandler}
+            value={userInput.enteredAmount}
+          />
         </div>
         <div className="new-expense__control">
           <label htmlFor="date">Date</label>
           <input
             type="date"
-            id="date"
+            id="enteredDate"
             min="2023-01-01"
             max="2024-12-31"
-            onChange={dateChangeHandler}
+            onChange={inputChangeHandler}
+            value={userInput.enteredDate}
           />
         </div>
       </div>
