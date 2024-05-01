@@ -14,7 +14,6 @@ function ExpenseItem(props) {
   // defining onClick function
   const buttonClickHandler = (event) => {
     setTitle("New Title");
-    console.log("Button Clicked");
   };
 
   return (
