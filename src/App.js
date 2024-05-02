@@ -1,22 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
 const App = () => {
-  const expenses = [
+  const [expenses, setExpenses] = useState([
     { id: 1, title: "Insurance", date: new Date(2023, 7, 15), price: 100 },
     { id: 2, title: "Book", date: new Date(2023, 8, 25), price: 10 },
     { id: 3, title: "Pen", date: new Date(2023, 2, 10), price: 1 },
     { id: 4, title: "Laptop", date: new Date(2023, 9, 17), price: 200 },
-  ];
-  const SaveExpenseAppDataHandler = (enteredAppExpenseData) => {
-    console.log(enteredAppExpenseData);
+  ]);
+
+  const addExpenseHandler = (expense) => {
+    setExpenses((prevExpenses) => {
+      return [...prevExpenses, expense]; // Concatenate the new expense to the existing expenses array
+    });
+    // console.log(expense);
   };
 
   return (
-    // step3.here again I used onAddExpense as funtion props passing to it,s child NewExpense
     <div>
-      <NewExpense onAddExpense={SaveExpenseAppDataHandler} />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses expenses={expenses} />
     </div>
   );
