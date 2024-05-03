@@ -25,10 +25,16 @@ const ExpenseForm = (props) => {
       price: enteredAmount,
       date: new Date(enteredDate),
     };
+    props.toggleValue(false);
     props.onSaveExpenseData(expenseData);
+    // console.log(onSaveExpenseData)
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
+  };
+  // const [toggleValue,setToggleValue] = useState(true)
+  const cancelBtnHandler = () => {
+    props.toggleValue(false);
   };
 
   return (
@@ -64,7 +70,9 @@ const ExpenseForm = (props) => {
           />
         </div>
       </div>
+
       <div className="new-expense__actions">
+        <button onClick={cancelBtnHandler}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
